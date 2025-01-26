@@ -6,7 +6,15 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:48:48 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/22 12:48:49 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/26 18:06:55 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "so_long.h"
+
+int main(int argc, char **argv)
+{
+	if (argc != 2)
+		return (show_error(GEN_002), 1);
+	return (0);
+}

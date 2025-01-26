@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:52:52 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/26 17:23:54 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/26 18:06:43 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	show_error(t_err_code err_code)
 		ft_printf("想定外のエラー\n");
 	else if (err_code == GEN_001)
 		ft_printf("未知のワードを検出しました\n");
+	else if (err_code == GEN_002)
+		ft_printf("引数は*.ber一つのみ指定可能です\n");
 	else if (err_code == ITM_000)
 		ft_printf("アイテムが存在しません\n");
 	else if (err_code == ITM_001)
