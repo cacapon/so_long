@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_result.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 12:50:14 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/26 17:22:55 by ttsubo           ###   ########.fr       */
+/*   Created: 2025/01/26 17:28:25 by ttsubo            #+#    #+#             */
+/*   Updated: 2025/01/26 17:48:15 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef FT_RESULT_H
+# define FT_RESULT_H
 
-typedef enum e_err_code
+typedef enum e_result_sts
 {
-	GEN_000,
-	GEN_001,
-	ITM_000,
-	ITM_001,
-	MAP_000,
-	MAP_001,
-	MAP_002,
-	MAP_003,
-	MAP_004,
-	MAP_005,
-}	t_err_code;
+	OK,
+	NG,
+}					t_result_sts;
+
+typedef union u_data
+{
+	int				i_val;
+	char			s_val[256];
+}					t_data;
+
+typedef struct e_result
+{
+	t_result_sts	sts;
+	t_data			data;
+}					t_result;
 
 #endif
