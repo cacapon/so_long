@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:50:14 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/02/01 15:06:51 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/02/01 15:12:10 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include "ft_result.h"
-# include "lib/libft/libft.h"
+# include "libft.h"
 # include <stddef.h>
 # include <stdbool.h>
 # include "mlx.h"
