@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 12:02:24 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/02/10 12:31:04 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/02/10 15:59:26 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@ t_game	*game_init(char *title, t_vec size, char (*map)[6])
 	game->func = (t_func){.exit = game_exit, .reset = game_reset};
 	game->sys.mlx = mlx_init();
 	game->sys.win = mlx_new_window(game->sys.mlx, size.x, size.y, title);
+	game->sys.timer = 0;
 	game->data.count = 0;
 	game->data.coin = 2;
 	game->data.player = (t_vec){.x = 1, .y = 2};
+	game->data.is_move = false;
 	game->data.is_clear = false;
 	game->data.map = map;
 	return (game);

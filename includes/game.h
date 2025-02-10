@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 11:50:02 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/02/10 12:31:39 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/02/10 16:09:42 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,15 @@ typedef struct s_sys
 {
 	void				*mlx;
 	void				*win;
+	size_t				timer;
 	t_key_ctrl			key_ctrl;
 }						t_sys;
 
+/**
+ * @brief ゲームデータの構造体
+ * 
+ * @note TODO プレイヤーの状態管理が今2値しか無いのでboolにしている
+ */
 typedef struct s_data
 {
 	char (*map)[6];
@@ -50,6 +56,7 @@ typedef struct s_data
 	int					coin;
 	t_vec				player;
 	bool				is_clear;
+	bool				is_p_state;
 }						t_data;
 
 typedef struct s_func
