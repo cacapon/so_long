@@ -55,4 +55,7 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+# User Ignore
+so_long
+
 # End of https://www.toptal.com/developers/gitignore/api/c

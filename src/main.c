@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:38:46 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/02/10 13:13:23 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/02/10 14:26:20 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,8 @@ void	app(void)
 
 int	main(int argc, char **argv)
 {
+	(void)	argc;
+	(void)	argv;
 	app();
 	return (0);
 }
