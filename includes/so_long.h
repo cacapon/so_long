@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:50:14 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/02/01 15:12:10 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/02/03 12:26:17 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 # include "ft_result.h"
 # include "libft.h"
-# include <stddef.h>
-# include <stdbool.h>
 # include "mlx.h"
+# include <stdbool.h>
+# include <stddef.h>
+# include <X11/keysym.h>
 
 typedef struct s_game	t_game;
 
@@ -35,18 +36,33 @@ typedef enum e_err_code
 	MAP_005,
 }						t_err_code;
 
-typedef struct e_vector
+typedef enum e_keycode
+{
+	KEY_Q = XK_q,
+	KEY_ESC = XK_Escape,
+	KEY_W = XK_w,
+	KEY_S = XK_s,
+	KEY_A = XK_a,
+	KEY_D = XK_d,
+	KEY_R = XK_r,
+	KEY_UP = XK_Up,
+	KEY_DOWN = XK_Down,
+	KEY_LEFT = XK_Left,
+	KEY_RIGHT = XK_Right,
+}						t_keycode;
+
+typedef struct e_vec
 {
 	int					x;
 	int					y;
-}						t_vector;
+}						t_vec;
 
 typedef struct s_game
 {
-	char				**map;
+	char				(*map)[6];
 	int					count;
 	int					coin;
-	t_vector			player;
+	t_vec				player;
 	bool				is_clear;
 	void				(*draw)(t_game *self);
 	void				(*update)(t_game *self);
