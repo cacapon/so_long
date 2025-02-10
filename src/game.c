@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 12:02:24 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/02/10 12:11:08 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/02/10 12:31:04 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  * @return t_game*
  * @note	一部の情報を決め打ちにしています。
  */
-t_game	*game_init(char *title, t_vec size, char *map[])
+t_game	*game_init(char *title, t_vec size, char (*map)[6])
 {
 	t_game	*game;
 

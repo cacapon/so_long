@@ -6,13 +6,15 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 11:50:02 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/02/10 12:04:54 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/02/10 12:31:39 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_H
 # define GAME_H
 
+# include "libft.h"
+# include "mlx.h"
 # include <stdbool.h>
 # include <stddef.h>
 
@@ -63,7 +65,7 @@ typedef struct s_game
 	t_func				func;
 }						t_game;
 
-t_game					*game_init(char *title, t_vec size, char *map[]);
+t_game					*game_init(char *title, t_vec size, char (*map)[6]);
 void					game_exit(t_game *self);
 void					game_reset(t_game *self);
 
