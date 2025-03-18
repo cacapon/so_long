@@ -1,0 +1,3 @@
+[submodule "lib/glx"]
+	path = lib/glx
+	url = https://github.com/cacapon/GameLibX.git
