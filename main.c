@@ -6,7 +6,57 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:48:48 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/22 12:48:49 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/19 17:47:13 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "so_long.h"
+
+typedef struct s_game_data
+{
+	t_pos	p_pos;
+	int		coin;
+	int		count;
+	bool	is_clear;
+}			t_game_data;
+
+int	draw(void *param)
+{
+	t_game_data	*data;
+	t_glx		*glx;
+
+	glx = get_glx();
+	data = (t_game_data *)param;
+	glx->cls();
+	glx->text("so_long", (t_pos){250, 250}, GLX_COLOR_MINT_GREEN);
+}
+
+int	update(void *param)
+{
+	t_game_data	*data;
+	t_glx		*glx;
+
+	data = (t_game_data *)param;
+	glx = get_glx();
+	if (glx->btnp(XK_Escape))
+		glx->quit(EXIT_SUCCESS);
+	return (0);
+}
+
+int	clean(void *param)
+{
+	(void)param;
+	return (0);
+}
+
+int	main(int ac, char **av)
+{
+	t_glx *glx;
+	t_game_data *data;
+
+	data = ft_calloc(1, sizeof(t_data));
+	glx = glx_init("so_long", 500, 500, 1000);
+	glx->hook(update, draw, clean);
+	glx->run(data);
+	return (0);
+}
