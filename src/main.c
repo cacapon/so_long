@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:48:48 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/19 18:22:33 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/19 18:23:44 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	update(void *param)
 
 int	clean(void *param)
 {
-	(void)param;
+	free(param);
 	return (0);
 }
 
