@@ -6,13 +6,14 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:50:14 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/26 17:50:09 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/18 12:02:32 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+#include "glx.h"
 #include "ft_result.h"
 
 typedef enum e_err_code
