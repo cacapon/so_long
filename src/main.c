@@ -6,19 +6,11 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:48:48 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/19 18:13:06 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/19 18:22:33 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-typedef struct s_game_data
-{
-	t_pos	p_pos;
-	int		coin;
-	int		count;
-	bool	is_clear;
-}			t_game_data;
 
 int	draw(void *param)
 {
@@ -54,8 +46,8 @@ int	clean(void *param)
 
 int	main(int ac, char **av)
 {
-	t_glx *glx;
-	t_game_data *data;
+	t_glx		*glx;
+	t_game_data	*data;
 
 	(void)ac;
 	(void)av;
