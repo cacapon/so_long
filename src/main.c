@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:48:48 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 19:51:07 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 20:09:52 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,34 @@ int	draw(void *param)
 	return (0);
 }
 
+void	move(t_game_data *data, t_sl_vec mv)
+{
+	int			i;
+	int			mv_i;
+	t_sl_vec	p_mv;
+
+	p_mv = (t_sl_vec){data->p_pos.x + mv.x, data->p_pos.y + mv.y};
+	if (p_mv.x < 0 || p_mv.x >= data->map->w || p_mv.y < 0
+		|| p_mv.y >= data->map->h)
+		return ;
+	i = data->p_pos.x + data->p_pos.y + (data->p_pos.y * data->map->w);
+	mv_i = p_mv.x + p_mv.y + (p_mv.y * data->map->w);
+	if (data->map->data[mv_i] == '1')
+		return ;
+	if (data->map->data[mv_i] == 'C')
+		data->has_items++;
+	if (data->map->data[mv_i] == 'E')
+	{
+		if (data->map->items == data->has_items)
+			data->is_clear = true;
+		else
+			return ;
+	}
+	data->map->data[i] = '0';
+	data->map->data[mv_i] = 'P';
+	data->p_pos = p_mv;
+}
+
 int	update(void *param)
 {
 	t_game_data	*data;
@@ -61,6 +89,14 @@ int	update(void *param)
 	glx = get_glx();
 	if (glx->btnp(XK_Escape))
 		glx->quit(EXIT_SUCCESS);
+	if (glx->btnp(XK_w))
+		move(data, (t_sl_vec){0, -1});
+	if (glx->btnp(XK_a))
+		move(data, (t_sl_vec){-1, 0});
+	if (glx->btnp(XK_s))
+		move(data, (t_sl_vec){0, 1});
+	if (glx->btnp(XK_d))
+		move(data, (t_sl_vec){1, 0});
 	return (0);
 }
 
@@ -110,6 +146,7 @@ int	main(int ac, char **av)
 		return (1);
 	if (check(is_arround_wall(*data->map)))
 		return (1);
+	data->p_pos = get_player_index(*data->map);
 	data->map->items = get_elem_count(*data->map, 'C');
 	if (check(path_check(*data->map)))
 		return (1);
