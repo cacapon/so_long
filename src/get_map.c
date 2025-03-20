@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 11:07:44 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 15:13:02 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 15:29:22 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static char	*sl_strjoin(char *s1, char const *s2)
 	return (new_str);
 }
 
-t_sl_result	get_map(char *map_path, char *map)
+t_sl_result	get_map(char *map_path, char **map)
 {
 	char	*line;
 	char	*lines;
@@ -61,6 +61,6 @@ t_sl_result	get_map(char *map_path, char *map)
 	close(fd);
 	if (lines[0] == '\0')
 		return ((t_sl_result){.sts = false, .e_code = MAP_007});
-	map = lines;
+	*map = lines;
 	return ((t_sl_result){.sts = true, .e_code = NO_ERR});
 }
