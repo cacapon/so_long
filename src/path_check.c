@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:45:41 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 19:27:55 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 19:36:11 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	path_check_rec(t_sl_path *path_s, t_sl_vec pos)
 	int	i;
 
 	i = pos.x + pos.y + (path_s->map.w * pos.y);
-	ft_printf("DBG: pos(%d,%d)=%c item:%d, exit:%d\n",pos.x, pos.y, path_s->map.data[i], path_s->item_c, path_s->exit_c);
 	if (path_s->queue[i] == true)
 		return ;
 	if (path_s->map.data[i] == '1')
@@ -78,7 +77,6 @@ t_sl_result	path_check(t_map map)
 	*path_s = (t_sl_path){.exit_c = 0, .item_c = 0, .map = map, .queue = q};
 	pos = _get_player_index(map);
 	path_check_rec(path_s, pos);
-	ft_printf("END: path(i:%d, e:%d) map(i:%d)\n",path_s->item_c, path_s->exit_c, map.items);
 	if (map.items != path_s->item_c)
 		return (_free_path_s(path_s), (t_sl_result){false, ITM_001});
 	if (path_s->exit_c == 0)
