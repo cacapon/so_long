@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:48:48 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 14:07:45 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 14:42:02 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int	main(int ac, char **av)
 {
 	t_glx		*glx;
 	t_game_data	*data;
+	t_err_code	error;
 
 	(void)ac;
 	data = ft_calloc(1, sizeof(t_data));
@@ -93,6 +94,9 @@ int	main(int ac, char **av)
 	data->map->data = get_map(av[1]);
 	if (!is_valid_data(*data->map))
 		return (show_error(GEN_001), 1);
+	error = is_valid_map_count(*data->map);
+	if (error != NO_ERR)
+		return (show_error(error), 1);
 	glx = glx_init("so_long", 500, 500, 1000);
 	set_texture();
 	glx->hook(update, draw, clean);
