@@ -57,5 +57,6 @@ dkms.conf
 
 #custom ignore
 so_long
+.vscode/
 
 # End of https://www.toptal.com/developers/gitignore/api/c
