@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 11:07:44 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 16:52:49 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 16:53:44 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ t_sl_result	init_map_size(t_map **map)
 		tmp_w++;
 		i++;
 	}
+	(*map)->h++;
 	if (tmp_w != (*map)->w)
 		return ((t_sl_result){false, MAP_004});
 	return ((t_sl_result){true, NO_ERR});
