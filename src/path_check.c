@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:45:41 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/21 00:32:55 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/21 00:37:36 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	path_check_rec(t_sl_path *path_s, t_sl_vec pos)
 	path_check_rec(path_s, (t_sl_vec){pos.x + 1, pos.y});
 	path_check_rec(path_s, (t_sl_vec){pos.x - 1, pos.y});
 	path_check_rec(path_s, (t_sl_vec){pos.x, pos.y + 1});
-	path_check_rec(path_s, (t_sl_vec){pos.x + 1, pos.y - 1});
+	path_check_rec(path_s, (t_sl_vec){pos.x, pos.y - 1});
 }
 
 t_sl_result	path_check(t_map map)
