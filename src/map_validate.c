@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:57:18 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 16:41:52 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 17:40:36 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,44 @@ t_sl_result	is_valid_map_count(t_map map)
 		return ((t_sl_result){false, MAP_000});
 	if (p_count > 1)
 		return ((t_sl_result){false, MAP_001});
+	return ((t_sl_result){true, NO_ERR});
+}
+
+/**
+ * @brief 周囲が壁に囲まれているかチェックします。
+ *
+ * @param map
+ * @return t_sl_result
+ */
+t_sl_result	is_arround_wall(t_map map)
+{
+	int			lf_count;
+	int			index;
+	t_sl_vec	vec;
+
+	vec = (t_sl_vec){0, 0};
+	lf_count = 0;
+	index = 0;
+	while (map.data[index] && vec.y < map.h)
+	{
+		index = vec.x + (vec.y * map.w) + lf_count;
+		if (vec.y == 0 || vec.y == map.h - 1)
+		{
+			if (map.data[index] != '1')
+				return ((t_sl_result){false, MAP_005});
+		}
+		else if (vec.x == 0 || vec.x == map.w - 1)
+		{
+			if (map.data[index] != '1')
+				return ((t_sl_result){false, MAP_005});
+		}
+		if (vec.x == map.w - 1)
+		{
+			vec = (t_sl_vec){0, vec.y + 1};
+			lf_count++;
+			continue ;
+		}
+		vec.x++;
+	}
 	return ((t_sl_result){true, NO_ERR});
 }
