@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 11:07:44 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 16:44:14 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 16:52:49 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,11 @@ t_sl_result	init_map_size(t_map **map)
 	while ((*map)->data[i] && (*map)->h == 0)
 	{
 		if ((*map)->data[i] == '\n')
+		{
 			(*map)->h++;
+			i++;
+			break;
+		}
 		(*map)->w++;
 		i++;
 	}
@@ -95,6 +99,7 @@ t_sl_result	init_map_size(t_map **map)
 				return ((t_sl_result){false, MAP_004});
 			(*map)->h++;
 			tmp_w = 0;
+			i++;
 			continue ;
 		}
 		tmp_w++;
