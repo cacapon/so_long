@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:57:18 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 17:40:36 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 19:33:33 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,24 +37,6 @@ t_sl_result	is_valid_data(t_map map)
 	return ((t_sl_result){true, NO_ERR});
 }
 
-static int	_get_elem_count(t_map map, char elem)
-{
-	int	i;
-	int	count;
-
-	i = 0;
-	count = 0;
-	if (!map.data || map.data[i] == '\0')
-		return (0);
-	while (map.data[i])
-	{
-		if (map.data[i] == elem)
-			count++;
-		i++;
-	}
-	return (count);
-}
-
 /**
  * @brief map要素の個数が正しいかチェックします。
  *
@@ -66,9 +48,9 @@ t_sl_result	is_valid_map_count(t_map map)
 	int	e_count;
 	int	p_count;
 
-	c_count = _get_elem_count(map, 'C');
-	e_count = _get_elem_count(map, 'E');
-	p_count = _get_elem_count(map, 'P');
+	c_count = get_elem_count(map, 'C');
+	e_count = get_elem_count(map, 'E');
+	p_count = get_elem_count(map, 'P');
 	if (c_count == 0)
 		return ((t_sl_result){false, ITM_000});
 	if (e_count == 0)
@@ -87,6 +69,7 @@ t_sl_result	is_valid_map_count(t_map map)
  *
  * @param map
  * @return t_sl_result
+ * @note indexはi=x+(yw)+yで求められるので簡略化可能かも
  */
 t_sl_result	is_arround_wall(t_map map)
 {

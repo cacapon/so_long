@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:48:48 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 17:09:29 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 19:34:41 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,10 @@ int	main(int ac, char **av)
 	if (result.e_code != NO_ERR)
 		return (show_error(result.e_code), 1);
 	result = is_arround_wall(*data->map);
+	if (result.e_code != NO_ERR)
+		return (show_error(result.e_code), 1);
+	data->map->items = get_elem_count(*data->map, 'C');
+	result = path_check(*data->map);
 	if (result.e_code != NO_ERR)
 		return (show_error(result.e_code), 1);
 	glx = glx_init("so_long", 500, 500, 1000);
