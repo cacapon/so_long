@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:45:41 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 20:07:34 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/21 00:32:55 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ void	path_check_rec(t_sl_path *path_s, t_sl_vec pos)
 	if (path_s->map.data[i] == 'C')
 		path_s->item_c++;
 	if (path_s->map.data[i] == 'E')
+	{
 		path_s->exit_c++;
+		return ;
+	}
 	path_check_rec(path_s, (t_sl_vec){pos.x + 1, pos.y});
 	path_check_rec(path_s, (t_sl_vec){pos.x - 1, pos.y});
 	path_check_rec(path_s, (t_sl_vec){pos.x, pos.y + 1});
