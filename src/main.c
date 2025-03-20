@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:48:48 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 21:51:02 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 22:04:42 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main(int ac, char **av)
 	data->map->items = get_elem_count(*data->map, 'C');
 	if (check(path_check(*data->map)))
 		return (1);
-	glx = glx_init("so_long", 800, 500, 1000);
+	glx = glx_init("so_long", 550, 500, 1000);
 	set_texture();
 	glx->hook(update, draw, clean);
 	glx->run(data);
