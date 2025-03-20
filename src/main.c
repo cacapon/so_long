@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:48:48 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 20:09:52 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 20:12:03 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ int	update(void *param)
 	(void)data;
 	data = (t_game_data *)param;
 	glx = get_glx();
+	if (data->is_clear)
+		glx->quit(0);
 	if (glx->btnp(XK_Escape))
 		glx->quit(EXIT_SUCCESS);
 	if (glx->btnp(XK_w))
@@ -150,7 +152,7 @@ int	main(int ac, char **av)
 	data->map->items = get_elem_count(*data->map, 'C');
 	if (check(path_check(*data->map)))
 		return (1);
-	glx = glx_init("so_long", 500, 500, 1000);
+	glx = glx_init("so_long", 800, 500, 1000);
 	set_texture();
 	glx->hook(update, draw, clean);
 	glx->run(data);
