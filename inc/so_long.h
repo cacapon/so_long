@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:50:14 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 12:54:35 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 12:55:39 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_map
 
 typedef struct s_game_data
 {
+	t_map	*map;
 	t_pos	p_pos;
 	int		coin;
 	int		count;

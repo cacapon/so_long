@@ -6,7 +6,7 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/18 12:00:31 by ttsubo            #+#    #+#              #
-#    Updated: 2025/03/20 12:36:55 by ttsubo           ###   ########.fr        #
+#    Updated: 2025/03/20 13:07:48 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ GLX_H	=glx.h
 I_FLG	=-I$(INC_PTH) -I$(GLX_PTH)
 L_FLG	=-lX11 -lXext
 
-SRC 	=main.c error.c
+SRC 	=main.c error.c get_map.c
 
 SRCS = $(addprefix $(SRC_PTH), $(SRC))
 OBJS = $(addprefix $(BLD_PTH), $(SRC:.c=.o))
