@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:57:18 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 17:40:36 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 17:51:40 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ t_sl_result	is_valid_map_count(t_map map)
  *
  * @param map
  * @return t_sl_result
+ * @note indexはi=x+(yw)+yで求められるので簡略化可能かも
  */
 t_sl_result	is_arround_wall(t_map map)
 {

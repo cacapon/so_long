@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:50:14 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 17:08:41 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 18:00:02 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ t_sl_result		is_valid_data(t_map map);
 t_sl_result		is_valid_map_count(t_map map);
 t_sl_result		init_map_size(t_map **map);
 t_sl_result		is_arround_wall(t_map map);
+t_sl_result		path_check(t_map map);
 
 #endif
