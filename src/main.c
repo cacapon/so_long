@@ -6,105 +6,11 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:48:48 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 20:22:23 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 20:36:51 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-// TODO: TOO_MANY_LINES
-int	draw(void *param)
-{
-	t_game_data	*data;
-	t_glx		*glx;
-	t_pos		draw_pos;
-	int			i;
-
-	glx = get_glx();
-	data = (t_game_data *)param;
-	draw_pos = (t_pos){.x = 0, .y = 32};
-	glx->cls();
-	i = 0;
-	while (data->map->data[i])
-	{
-		if (data->map->data[i] == '0')
-			glx->put_img(0, draw_pos);
-		if (data->map->data[i] == '1')
-			glx->put_img(1, draw_pos);
-		if (data->map->data[i] == 'C')
-			glx->put_img(2, draw_pos);
-		if (data->map->data[i] == 'E')
-			glx->put_img(3, draw_pos);
-		if (data->map->data[i] == 'P')
-			glx->put_img(4, draw_pos);
-		if (data->map->data[i] == '\n')
-		{
-			draw_pos.y += 16;
-			draw_pos.x = 0;
-			i++;
-			continue ;
-		}
-		i++;
-		draw_pos.x += 16;
-	}
-	glx->text("move:", (t_pos){16,16}, GLX_COLOR_CORN_FLOWER_BLUE);
-	glx->text(ft_itoa(data->count), (t_pos){48,16}, GLX_COLOR_CORN_FLOWER_BLUE);
-	glx->text("so_long", (t_pos){250, 16}, GLX_COLOR_MINT_GREEN);
-	return (0);
-}
-
-void	move(t_game_data *data, t_sl_vec mv)
-{
-	int			i;
-	int			mv_i;
-	t_sl_vec	p_mv;
-
-	p_mv = (t_sl_vec){data->p_pos.x + mv.x, data->p_pos.y + mv.y};
-	if (p_mv.x < 0 || p_mv.x >= data->map->w || p_mv.y < 0
-		|| p_mv.y >= data->map->h)
-		return ;
-	i = data->p_pos.x + data->p_pos.y + (data->p_pos.y * data->map->w);
-	mv_i = p_mv.x + p_mv.y + (p_mv.y * data->map->w);
-	if (data->map->data[mv_i] == '1')
-		return ;
-	if (data->map->data[mv_i] == 'C')
-		data->has_items++;
-	if (data->map->data[mv_i] == 'E')
-	{
-		if (data->map->items == data->has_items)
-			data->is_clear = true;
-		else
-			return ;
-	}
-	data->map->data[i] = '0';
-	data->map->data[mv_i] = 'P';
-	data->p_pos = p_mv;
-	data->count++;
-	ft_printf("move:%d\n", data->count);
-}
-
-int	update(void *param)
-{
-	t_game_data	*data;
-	t_glx		*glx;
-
-	(void)data;
-	data = (t_game_data *)param;
-	glx = get_glx();
-	if (data->is_clear)
-		glx->quit(0);
-	if (glx->btnp(XK_Escape))
-		glx->quit(EXIT_SUCCESS);
-	if (glx->btnp(XK_w))
-		move(data, (t_sl_vec){0, -1});
-	if (glx->btnp(XK_a))
-		move(data, (t_sl_vec){-1, 0});
-	if (glx->btnp(XK_s))
-		move(data, (t_sl_vec){0, 1});
-	if (glx->btnp(XK_d))
-		move(data, (t_sl_vec){1, 0});
-	return (0);
-}
 
 int	clean(void *param)
 {

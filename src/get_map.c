@@ -6,11 +6,26 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 11:07:44 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 19:30:21 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 21:02:22 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+static void	_set_first_width(t_map **map, int *i)
+{
+	while ((*map)->data[*i] && (*map)->h == 0)
+	{
+		if ((*map)->data[*i] == '\n')
+		{
+			(*map)->h++;
+			(*i)++;
+			break ;
+		}
+		(*map)->w++;
+		(*i)++;
+	}
+}
 
 /**
  * @brief ft_strjoinのマイナー改造Ver. 内部でs1をメモリ開放してます。
@@ -79,18 +94,8 @@ t_sl_result	init_map_size(t_map **map)
 	(*map)->w = 0;
 	(*map)->h = 0;
 	i = 0;
-	while ((*map)->data[i] && (*map)->h == 0)
-	{
-		if ((*map)->data[i] == '\n')
-		{
-			(*map)->h++;
-			i++;
-			break ;
-		}
-		(*map)->w++;
-		i++;
-	}
 	tmp_w = 0;
+	_set_first_width(map, &i);
 	while ((*map)->data[i])
 	{
 		if ((*map)->data[i] == '\n')
@@ -100,7 +105,6 @@ t_sl_result	init_map_size(t_map **map)
 			(*map)->h++;
 			tmp_w = 0;
 			i++;
-			continue ;
 		}
 		tmp_w++;
 		i++;

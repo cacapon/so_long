@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:50:14 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 20:08:20 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 20:37:18 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ typedef struct s_game_data
 	bool		is_clear;
 }				t_game_data;
 
+int				draw(void *param);
+int				update(void *param);
 t_sl_vec		get_player_index(t_map map);
 int				get_elem_count(t_map map, char elem);
 t_sl_result		get_map(char *map_path, char **map);

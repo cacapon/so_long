@@ -6,15 +6,18 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 12:04:25 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 12:05:34 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 21:04:46 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "error.h"
 
-int main(void)
+int	main(void)
 {
-	for (int i = 0; i <= XXX_000; i++)
-		show_error(i);
+	int	i;
+
+	i = 0;
+	while (i <= XXX_000)
+		show_error(i++);
 	return (0);
 }
