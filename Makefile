@@ -6,13 +6,13 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/18 12:00:31 by ttsubo            #+#    #+#              #
-#    Updated: 2025/03/20 22:01:46 by ttsubo           ###   ########.fr        #
+#    Updated: 2025/03/21 02:55:22 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=so_long
 CC		=cc
-W_FLG	=-Wall -Wextra -Werror
+W_FLG	=-Wall -Wextra -Werror -g -fsanitize=address
 
 INC_PTH	=inc/
 GLX_PTH =lib/glx/

@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 11:07:44 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 21:02:22 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/21 03:22:34 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,32 +53,8 @@ static char	*sl_strjoin(char *s1, char const *s2)
 	return (new_str);
 }
 
-t_sl_result	get_map(char *map_path, char **map)
-{
-	char	*line;
-	char	*lines;
-	int		fd;
 
-	line = "";
-	lines = ft_strdup(line);
-	fd = open(map_path, O_RDONLY);
-	if (fd < 0)
-		return ((t_sl_result){.sts = false, .e_code = MAP_006});
-	while (line)
-	{
-		line = get_next_line(fd);
-		if (line == NULL || line[0] == '\n')
-			break ;
-		lines = sl_strjoin(lines, line);
-		free(line);
-	}
-	free(line);
-	close(fd);
-	if (lines[0] == '\0')
-		return ((t_sl_result){.sts = false, .e_code = MAP_007});
-	*map = lines;
-	return ((t_sl_result){.sts = true, .e_code = NO_ERR});
-}
+
 
 /**
  * @brief mapの高さ・幅を初期化します。 長方形ではない場合エラーになります。
