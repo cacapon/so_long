@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 11:49:16 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 12:45:40 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 14:40:45 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef enum e_err_code
 	MAP_006,
 	MAP_007,
 	XXX_000,
+	NO_ERR
 }			t_err_code;
 
 # define GEN_000_STR "想定外のエラー\n"
