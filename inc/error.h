@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 11:49:16 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 12:03:36 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 12:45:40 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ typedef enum e_err_code
 	MAP_003,
 	MAP_004,
 	MAP_005,
+	MAP_006,
+	MAP_007,
 	XXX_000,
 }			t_err_code;
 
@@ -39,6 +41,8 @@ typedef enum e_err_code
 # define MAP_003_STR "出口が複数あります\n"
 # define MAP_004_STR "マップが長方形ではありません\n"
 # define MAP_005_STR "マップが閉じていません\n"
+# define MAP_006_STR "マップファイルを開けませんでした\n"
+# define MAP_007_STR "空のマップファイルです\n"
 # define XXX_000_STR "存在しないエラーコードを渡されました\n"
 
 void	show_error(t_err_code err_code);

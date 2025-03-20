@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:52:52 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 12:02:45 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 12:45:51 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	show_error(t_err_code err_code)
 	static char	*err_str[] = {
 		GEN_000_STR, GEN_001_STR,
 		ITM_000_STR, ITM_001_STR,
-		MAP_000_STR, MAP_001_STR, MAP_002_STR,
-		MAP_003_STR, MAP_004_STR, MAP_005_STR,
+		MAP_000_STR, MAP_001_STR, MAP_002_STR, MAP_003_STR, 
+		MAP_004_STR, MAP_005_STR, MAP_006_STR, MAP_007_STR,
 		XXX_000_STR,
 	};
 
