@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:48:48 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 20:12:03 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 20:22:23 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	draw(void *param)
 		i++;
 		draw_pos.x += 16;
 	}
+	glx->text("move:", (t_pos){16,16}, GLX_COLOR_CORN_FLOWER_BLUE);
+	glx->text(ft_itoa(data->count), (t_pos){48,16}, GLX_COLOR_CORN_FLOWER_BLUE);
 	glx->text("so_long", (t_pos){250, 16}, GLX_COLOR_MINT_GREEN);
 	return (0);
 }
@@ -77,6 +79,8 @@ void	move(t_game_data *data, t_sl_vec mv)
 	data->map->data[i] = '0';
 	data->map->data[mv_i] = 'P';
 	data->p_pos = p_mv;
+	data->count++;
+	ft_printf("move:%d\n", data->count);
 }
 
 int	update(void *param)
