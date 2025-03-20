@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 11:07:44 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 12:53:51 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 13:52:21 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 /**
  * @brief ft_strjoinのマイナー改造Ver. 内部でs1をメモリ開放してます。
- * 
- * @param s1 
- * @param s2 
- * @return char* 
+ *
+ * @param s1
+ * @param s2
+ * @return char*
  */
-static char *sl_strjoin(char *s1, char const *s2)
+static char	*sl_strjoin(char *s1, char const *s2)
 {
 	size_t	s1_len;
 	size_t	s2_len;
@@ -38,7 +38,7 @@ static char *sl_strjoin(char *s1, char const *s2)
 	return (new_str);
 }
 
-char *get_map(char *map_path)
+char	*get_map(char *map_path)
 {
 	char	*line;
 	char	*lines;
@@ -53,7 +53,7 @@ char *get_map(char *map_path)
 	{
 		line = get_next_line(fd);
 		if (line == NULL || line[0] == '\n')
-			break;
+			break ;
 		lines = sl_strjoin(lines, line);
 		free(line);
 	}

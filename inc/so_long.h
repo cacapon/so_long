@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:50:14 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 12:55:39 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 13:12:55 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ typedef struct s_game_data
 	bool	is_clear;
 }			t_game_data;
 
-char *get_map(char *map_path);
+char		*get_map(char *map_path);
 
 #endif
