@@ -6,7 +6,7 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/18 12:00:31 by ttsubo            #+#    #+#              #
-#    Updated: 2025/03/20 20:44:55 by ttsubo           ###   ########.fr        #
+#    Updated: 2025/03/20 22:01:46 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ T_SRCS	= $(addprefix $(TST_PTH), $(T_SRC))
 T_OUT	= $(addprefix $(TST_PTH), $(T_SRC:.c=.out))
 
 all: $(NAME)
+init: $(GLX_PTH)$(GLX)
 
 $(NAME): $(OBJS) $(GLX_PTH)$(GLX)
 	$(CC) $(W_FLG) $^ $(L_FLG) -o $@
@@ -81,4 +82,4 @@ $(TST_PTH)%.out: $(TST_PTH)%.c $(GLX_PTH)$(GLX)
 		exit 1; \
 	fi
 
-.PHONE: all clean fclean re test
+.PHONE: init all clean fclean re test
