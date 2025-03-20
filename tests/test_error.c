@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   test_error.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 12:52:52 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 13:51:55 by ttsubo           ###   ########.fr       */
+/*   Created: 2025/03/20 12:04:25 by ttsubo            #+#    #+#             */
+/*   Updated: 2025/03/20 12:05:34 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "error.h"
 
-void	show_error(t_err_code err_code)
+int main(void)
 {
-	static char	*err_str[] = {
-		GEN_000_STR, GEN_001_STR,
-		ITM_000_STR, ITM_001_STR,
-		MAP_000_STR, MAP_001_STR, MAP_002_STR, MAP_003_STR,
-		MAP_004_STR, MAP_005_STR, MAP_006_STR, MAP_007_STR,
-		XXX_000_STR,
-	};
-
-	ft_printf("Error\n");
-	if (0 <= err_code && err_code < XXX_000)
-		ft_printf(err_str[err_code]);
-	else
-		ft_printf(err_str[XXX_000]);
+	for (int i = 0; i <= XXX_000; i++)
+		show_error(i);
+	return (0);
 }
