@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 20:24:19 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 20:35:20 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 21:37:46 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ static void	move(t_game_data *data, t_sl_vec mv)
 	data->map->data[mv_i] = 'P';
 	data->p_pos = p_mv;
 	data->count++;
-	ft_printf("move:%d\n", data->count);
+	sl_utoa(data->count, data->count_s);
+	ft_printf("move:%s\n", data->count_s);
 }
 
 int	update(void *param)

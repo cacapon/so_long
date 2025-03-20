@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:48:48 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 20:36:51 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 21:51:02 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 int	clean(void *param)
 {
-	free(param);
+	t_game_data	*data;
+
+	data = param;
+	free(data->map->data);
+	free(data->map);
+	free(data);
 	return (0);
 }
 
