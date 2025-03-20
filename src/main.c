@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:48:48 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 13:52:48 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 14:07:45 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ int	main(int ac, char **av)
 	data = ft_calloc(1, sizeof(t_data));
 	data->map = ft_calloc(1, sizeof(t_map));
 	data->map->data = get_map(av[1]);
+	if (!is_valid_data(*data->map))
+		return (show_error(GEN_001), 1);
 	glx = glx_init("so_long", 500, 500, 1000);
 	set_texture();
 	glx->hook(update, draw, clean);
