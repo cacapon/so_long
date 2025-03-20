@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 11:07:44 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 15:29:22 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 16:44:14 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,44 @@ t_sl_result	get_map(char *map_path, char **map)
 		return ((t_sl_result){.sts = false, .e_code = MAP_007});
 	*map = lines;
 	return ((t_sl_result){.sts = true, .e_code = NO_ERR});
+}
+
+/**
+ * @brief mapの高さ・幅を初期化します。 長方形ではない場合エラーになります。
+ *
+ * @param map
+ * @return t_sl_result
+ */
+t_sl_result	init_map_size(t_map **map)
+{
+	int	i;
+	int	tmp_w;
+
+	(*map)->w = 0;
+	(*map)->h = 0;
+	i = 0;
+	while ((*map)->data[i] && (*map)->h == 0)
+	{
+		if ((*map)->data[i] == '\n')
+			(*map)->h++;
+		(*map)->w++;
+		i++;
+	}
+	tmp_w = 0;
+	while ((*map)->data[i])
+	{
+		if ((*map)->data[i] == '\n')
+		{
+			if (tmp_w != (*map)->w)
+				return ((t_sl_result){false, MAP_004});
+			(*map)->h++;
+			tmp_w = 0;
+			continue ;
+		}
+		tmp_w++;
+		i++;
+	}
+	if (tmp_w != (*map)->w)
+		return ((t_sl_result){false, MAP_004});
+	return ((t_sl_result){true, NO_ERR});
 }

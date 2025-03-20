@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:48:48 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 15:29:58 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 16:43:47 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,9 @@ int	main(int ac, char **av)
 	data = ft_calloc(1, sizeof(t_game_data));
 	data->map = ft_calloc(1, sizeof(t_map));
 	result = get_map(av[1], &data->map->data);
+	if (!result.sts)
+		return (show_error(result.e_code), 1);
+	result = init_map_size(&(data->map));
 	if (!result.sts)
 		return (show_error(result.e_code), 1);
 	result = is_valid_data(*data->map);
