@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 20:36:25 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 20:50:43 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 21:38:33 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,7 @@ int	draw(void *param)
 		draw_pos.x += 16;
 	}
 	glx->text("move:", (t_pos){16, 16}, GLX_COLOR_CORN_FLOWER_BLUE);
-	glx->text(ft_itoa(data->count), (t_pos){48, 16},
-		GLX_COLOR_CORN_FLOWER_BLUE);
+	glx->text(data->count_s, (t_pos){48, 16}, GLX_COLOR_CORN_FLOWER_BLUE);
 	glx->text("so_long", (t_pos){250, 16}, GLX_COLOR_MINT_GREEN);
 	return (0);
 }

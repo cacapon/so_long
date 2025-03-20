@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:50:14 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 20:37:18 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/20 21:37:27 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@
 # include "error.h"
 # include "glx.h"
 # include <fcntl.h>
+
+typedef struct s_util_index
+{
+	int			i;
+	int			j;
+	int			k;
+}				t_util_index;
 
 typedef struct s_sl_vec
 {
@@ -52,8 +59,10 @@ typedef struct s_game_data
 	int			has_items;
 	int			count;
 	bool		is_clear;
+	char		count_s[12];
 }				t_game_data;
 
+void			sl_utoa(unsigned int num, char *str);
 int				draw(void *param);
 int				update(void *param);
 t_sl_vec		get_player_index(t_map map);
