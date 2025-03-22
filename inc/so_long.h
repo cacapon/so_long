@@ -6,67 +6,26 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:50:14 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 21:37:27 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/22 16:54:18 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "error.h"
 # include "glx.h"
+# include "so_long_define.h"
+# include "so_long_struct.h"
 # include <fcntl.h>
 
-typedef struct s_util_index
-{
-	int			i;
-	int			j;
-	int			k;
-}				t_util_index;
-
-typedef struct s_sl_vec
-{
-	int			x;
-	int			y;
-}				t_sl_vec;
-
-typedef struct s_sl_result
-{
-	bool		sts;
-	t_err_code	e_code;
-}				t_sl_result;
-
-typedef struct s_map
-{
-	char		*data;
-	int			w;
-	int			h;
-	int			items;
-}				t_map;
-
-typedef struct s_sl_path
-{
-	t_map		map;
-	bool		*queue;
-	int			item_c;
-	int			exit_c;
-}				t_sl_path;
-
-typedef struct s_game_data
-{
-	t_map		*map;
-	t_sl_vec	p_pos;
-	int			has_items;
-	int			count;
-	bool		is_clear;
-	char		count_s[12];
-}				t_game_data;
-
+int				check(t_sl_result result);
+void			show_error(t_err_code err_code);
 void			sl_utoa(unsigned int num, char *str);
 int				draw(void *param);
 int				update(void *param);
 t_sl_vec		get_player_index(t_map map);
 int				get_elem_count(t_map map, char elem);
+t_sl_result		is_file_validate(int ac, char *filepath);
 t_sl_result		get_map(char *map_path, char **map);
 t_sl_result		is_valid_data(t_map map);
 t_sl_result		is_valid_map_count(t_map map);
