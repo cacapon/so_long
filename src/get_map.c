@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 11:07:44 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 21:02:22 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/22 17:48:28 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,19 @@ static char	*sl_strjoin(char *s1, char const *s2)
 	return (new_str);
 }
 
-t_sl_result	get_map(char *map_path, char **map)
+/**
+ * @brief map_pathのファイルをmap文字列ポインタに書き込みます。
+ * 
+ * @param map_path 
+ * @param map 
+ * @return t_sl_result 
+ */
+t_sl_result	load_map(char *map_path, char **map)
 {
 	char	*line;
-	char	*lines;
 	int		fd;
 
 	line = "";
-	lines = ft_strdup(line);
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
 		return ((t_sl_result){.sts = false, .e_code = MAP_006});
@@ -69,14 +74,13 @@ t_sl_result	get_map(char *map_path, char **map)
 		line = get_next_line(fd);
 		if (line == NULL || line[0] == '\n')
 			break ;
-		lines = sl_strjoin(lines, line);
+		*map = sl_strjoin(*map, line);
 		free(line);
 	}
 	free(line);
 	close(fd);
-	if (lines[0] == '\0')
+	if (*map[0] == '\0')
 		return ((t_sl_result){.sts = false, .e_code = MAP_007});
-	*map = lines;
 	return ((t_sl_result){.sts = true, .e_code = NO_ERR});
 }
 

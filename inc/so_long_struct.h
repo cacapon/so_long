@@ -6,15 +6,15 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 16:51:47 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/22 16:54:11 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/22 17:21:40 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_STRUCT_H
 # define SO_LONG_STRUCT_H
 
-# include <stdbool.h>
 # include "so_long_define.h"
+# include <stdbool.h>
 
 typedef struct s_util_index
 {

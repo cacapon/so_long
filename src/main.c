@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:48:48 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/22 16:37:58 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/22 17:49:12 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,18 @@ int	main(int ac, char **av)
 
 	if (check(is_file_validate(ac, av[1])))
 		return (1);
-	data = ft_calloc(1, sizeof(t_game_data));
-	data->map = ft_calloc(1, sizeof(t_map));
-	if (check(get_map(av[1], &data->map->data))
+	data = game_data_init();
+	if (check(is_valid_game_data(data))
+		|| check(load_map(av[1], &data->map->data))
 		|| check(init_map_size(&(data->map)))
 		|| check(is_valid_data(*data->map))
 		|| check(is_valid_map_count(*data->map))
 		|| check(is_arround_wall(*data->map)))
-		return (1);
+		return (game_data_dest(data), 1);
 	data->p_pos = get_player_index(*data->map);
 	data->map->items = get_elem_count(*data->map, 'C');
 	if (check(path_check(*data->map)))
-		return (1);
+		return (game_data_dest(data), 1);
 	glx = glx_init("so_long", 550, 500, 1000);
 	set_texture();
 	glx->hook(update, draw, clean);
