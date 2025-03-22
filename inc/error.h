@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 11:49:16 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 19:22:29 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/22 15:07:24 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef enum e_err_code
 	GEN_000,
 	GEN_001,
 	GEN_002,
+	GEN_003,
 	ITM_000,
 	ITM_001,
 	MAP_000,
@@ -36,6 +37,7 @@ typedef enum e_err_code
 # define GEN_000_STR "想定外のエラー\n"
 # define GEN_001_STR "未知のワードを検出しました\n"
 # define GEN_002_STR "メモリ割当に失敗しました\n"
+# define GEN_003_STR "引数は.berファイル一つだけ指定できます\n"
 # define ITM_000_STR "アイテムが存在しません\n"
 # define ITM_001_STR "アイテムが収集不可能です\n"
 # define MAP_000_STR "開始位置がありません\n"

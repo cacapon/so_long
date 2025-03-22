@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 12:48:48 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/03/20 22:04:42 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/03/22 15:07:13 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ int	main(int ac, char **av)
 	t_glx		*glx;
 	t_game_data	*data;
 
-	(void)ac;
+	if (ac != 2)
+		return (show_error(GEN_003), 1);
 	data = ft_calloc(1, sizeof(t_game_data));
 	data->map = ft_calloc(1, sizeof(t_map));
 	if (check(get_map(av[1], &data->map->data)))
