@@ -6,7 +6,7 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/18 12:00:31 by ttsubo            #+#    #+#              #
-#    Updated: 2025/03/22 18:09:53 by ttsubo           ###   ########.fr        #
+#    Updated: 2025/03/24 11:07:28 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,33 +44,39 @@ T_INVALID_MAP	= bad_ext.ber2	cannot_goal.ber	deplicate_player.ber	invalid_char.b
 T_INVALID_MAPS	= $(addprefix $(T_INVALID_PTH), $(T_INVALID_MAP))
 
 all: $(NAME)
-init: $(GLX_PTH)$(GLX)
 
 $(NAME): $(OBJS) $(GLX_PTH)$(GLX)
 	$(CC) $(W_FLG) $^ $(L_FLG) -o $@
 
-$(GLX_PTH)$(GLX): $(GLX_PTH)$(GLX_H)
+$(GLX_PTH)$(GLX):
 	$(MAKE) -C $(GLX_PTH)
 
 $(BLD_PTH)%.o: $(SRC_PTH)%.c
+	@if [ ! -e $(GLX_PTH)$(GLX_H) ]; then \
+		echo "clone submodule..."; \
+		git submodule update -i --recursive; \
+		echo "submodule cloned"; \
+	fi
 	$(CC) $(W_FLG) $^ -c $(I_FLG) -o $@
-
-$(GLX_PTH)$(GLX_H):
-	git submodule update -i --recursive
 
 clean:
 	rm -rf $(BLD_PTH)*.o
 	$(MAKE) -C $(GLX_PTH) $@
 
-fclean: clean
+fclean:
+	$(MAKE) clean
 	rm -rf $(NAME)
 	rm -rf $(TST_PTH)*.out
 	$(MAKE) -C $(GLX_PTH) $@
 
-re: fclean all
+re:
+	$(MAKE) fclean
+	$(MAKE) all
 
 # tests
-test: test1 test2
+test:
+	test1
+	test2
 test1: $(T_OUT)
 	@echo "Running test1..."
 	@for test_bin in $(T_OUT); do \
@@ -99,4 +105,4 @@ $(TST_PTH)%.out: $(TST_PTH)%.c $(GLX_PTH)$(GLX)
 		exit 1; \
 	fi
 
-.PHONE: init all clean fclean re test
+.PHONY: all clean fclean re test test1 test2
